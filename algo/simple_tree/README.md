@@ -13,5 +13,5 @@ $ cabal install doctest
 ## Check
 
 ```
-$ doctest 100_btree.hs
+$ doctest 100.btree.hs
 ```
