@@ -3,7 +3,7 @@
 
   Binary tree
 
-  Reference: IFPH Ch.6
+  Reference: IFPH 2nd, Ch.6
 
 -}
 
