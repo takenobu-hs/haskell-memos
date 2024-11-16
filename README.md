@@ -1,2 +1,2 @@
-# haskell-memo
-Haskell memo for myself
+# Haskell memo
+This is a personal repository for notes on the Haskell.
