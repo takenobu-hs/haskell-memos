@@ -17,7 +17,7 @@ Install doctest.
 $ cabal install doctest
 ```
 
-### Eample
+### Example
 
 Example check with doctest.
 
@@ -32,7 +32,7 @@ $ doctest Program.hs
 
 Install haddock.
 
-### Eample
+### Example
 
 ```
 $ haddock --html --hyperlinked-source -o dist Program.hs
