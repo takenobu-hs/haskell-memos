@@ -7,8 +7,14 @@ Refer [../../basic_tools.md](../../basic_tools.md#doctest-with-quickcheck)
 
 ## Check
 
-Example check with doctest.
+Check a file with doctest.
 
 ```
 $ doctest 100.btree.hs
+```
+
+check all files with doctest.
+
+```
+$ make -f ../../Makefile doctest_all
 ```
