@@ -25,6 +25,13 @@ Example check with doctest.
 $ doctest Program.hs
 ```
 
+### References
+
+* Doctest
+  * https://hackage.haskell.org/package/doctest
+* QuickCheck
+  * https://hackage.haskell.org/package/QuickCheck
+
 
 ## Haddock
 
@@ -41,3 +48,9 @@ $ cabal install haddock
 ```
 $ haddock --html --hyperlinked-source -o dist Program.hs
 ```
+
+### References
+
+* Haddock
+  * https://hackage.haskell.org/package/haddock
+  * https://haskell-haddock.readthedocs.io/latest/
