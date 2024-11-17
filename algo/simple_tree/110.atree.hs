@@ -7,6 +7,8 @@
 
 -}
 
+module Atrees where
+
 
 -- | Main type
 data Atree a = Leaf a | Fork Int (Atree a) (Atree a) deriving Show

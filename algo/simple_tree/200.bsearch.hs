@@ -7,6 +7,8 @@
 
 -}
 
+module Strees where
+
 
 -- | Main type
 data Stree a = Null | Fork (Stree a) a (Stree a) deriving Show

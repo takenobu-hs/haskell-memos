@@ -7,6 +7,8 @@
 
 -}
 
+module Btrees where
+
 
 -- | Main type
 data Btree a = Leaf a | Fork (Btree a) (Btree a) deriving Show

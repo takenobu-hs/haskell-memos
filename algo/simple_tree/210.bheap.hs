@@ -7,6 +7,8 @@
 
 -}
 
+module Htrees where
+
 
 -- | Main type
 data Htree a = Null | Fork a (Htree a) (Htree a) deriving Show
