@@ -1,21 +1,14 @@
 # Simple tree
 
-## Setup
+## Setup doctest
 
-Install dependencies for doctest.
-```
-% cabal install QuickCheck --lib
-% cabal install template-haskell --lib
-```
+Refer [../../basic_tools.md](../../basic_tools.md)
 
-Install doctest.
-```
-$ cabal install doctest
-```
 
 ## Check
 
 Example check with doctest.
+
 ```
 $ doctest 100.btree.hs
 ```
