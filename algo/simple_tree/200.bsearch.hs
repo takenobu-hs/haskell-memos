@@ -85,7 +85,6 @@ partition p xs = (filter p xs, filter (not . p) xs)
 -- [1,2,3]
 --
 -- prop> ordered $ sort xs 
--- True
 sort :: Ord a => [a] -> [a]
 sort = flatten . mkStree
 
