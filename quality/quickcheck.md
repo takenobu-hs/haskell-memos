@@ -28,7 +28,7 @@ ghci> sample' $ elements [0,1,2,3,5,8]
 ```
 
 
-#### elements, choose, and oneof
+#### `elements`, `choose`, `oneof`, and `frequency`
 
 ```
 ghci> sample' $ elements ["Jan", "Feb", "Mar"]
@@ -48,7 +48,7 @@ ghci> sample' $ frequency [(30, elements [1, 2, 3]), (70, elements [101, 102, 10
 ```
 
 
-#### arbitrary
+#### `arbitrary`
 
 ```
 ghci> sample' (arbitrary :: Gen Int)
@@ -59,7 +59,7 @@ ghci> sample' (arbitrary :: Gen [Int])
 ```
 
 
-#### suchThat
+#### `suchThat`
 
 ```
 ghci> sample' ((arbitrary :: Gen Int) `suchThat` even)
@@ -99,7 +99,7 @@ ghci> sample' (arbitrary :: Gen Signal)
 ```
 
 
-#### generate
+#### `generate`
 
 ```
 ghci> import Control.Monad
@@ -130,7 +130,13 @@ Passed:
 
 
 
-#### docteset
+#### quickcheck in docteset
+
+```
+-- |
+-- prop> add2 x y == add2 y x
+```
+
 
 ```
 -- | Prop test
