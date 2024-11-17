@@ -2,7 +2,7 @@
 
 ## Setup doctest
 
-Refer [../../basic_tools.md](../../basic_tools.md)
+Refer [../../basic_tools.md](../../basic_tools.md#doctest-with-quickcheck)
 
 
 ## Check
