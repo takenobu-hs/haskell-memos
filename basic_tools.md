@@ -32,6 +32,10 @@ $ doctest Program.hs
 
 Install haddock.
 
+```
+$ cabal install haddock
+```
+
 ### Example
 
 ```
