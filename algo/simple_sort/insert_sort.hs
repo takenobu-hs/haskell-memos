@@ -8,6 +8,8 @@
 -}
 
 
+module Isort where
+
 -- |
 -- >>> sortby id [2,6,1,0,8]
 -- [0,1,2,6,8]

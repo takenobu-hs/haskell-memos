@@ -7,6 +7,7 @@
 
 -}
 
+module Msort where
 
 -- |
 -- >>> sortby id [2,9,0,1,5]
