@@ -123,12 +123,12 @@ ghci> import Control.Monad
 ghci> generate (arbitrary :: Gen Int)
 2
 
-ghci> replicateM 10 $ generate (arbitrary :: Gen Int)
-[-29,5,-7,-12,-20,-2,-23,-2,-26,-12]
+ghci> generate $ vectorOf 10 (arbitrary :: Gen Int)
+[23,-7,19,-8,-17,-1,-5,21,15,0]
 
-ghci> xs <- replicateM 10 $ generate (arbitrary :: Gen Int)
+ghci> xs <- generate $ vectorOf 10 (arbitrary :: Gen Int)
 ghci> xs
-[6,-21,-14,-14,-3,-28,-27,-6,23,-24]
+[22,29,23,-20,1,7,-14,22,13,2]
 ```
 
 
