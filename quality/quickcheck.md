@@ -196,20 +196,19 @@ ghci> sample' generatePair
 ### Misc
 
 ```
-import Test.QuickCheck
+ghci> quickCheckWith (stdArgs {maxSize = 10000}) (\x y -> x+y == y+x)
++++ OK, passed 100 tests.
+```
+
+```
 stdArgs = Args
   { replay          = Nothing
   , maxSuccess      = 100
   , maxDiscardRatio = 10
   , maxSize         = 100
   , chatty          = True
-quickCheck :: Testable prop => prop -> IO ()
-quickCheck p = quickCheckWith stdArgs p
-
-args = stdArgs { maxSuccess = 200 }
-runq p = quickCheckWith args p
-ghci> runq prop_plus1
-+++ OK, passed 200 tests.
+  , maxShrinks      = maxBound
+  }
 ```
 
 
