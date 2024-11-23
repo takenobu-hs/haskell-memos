@@ -139,15 +139,39 @@ ghci> quickCheck  (\x y -> x+y == y+x)
 +++ OK, passed 100 tests.
 
 ghci> verboseCheck (\x y -> x+y == y+x)
-Passed:  
+Passed:
 0
 0
 :
 ```
 
 
+### QuickCheck examples
 
-#### quickcheck in docteset
+#### arbitrary with type variable
+
+```
+ instance Arbitrary a => Arbitrary (Btree a) where
+  arbitrary = oneof [ liftM  Leaf arbitrary
+                    , liftM2 Fork arbitrary arbitrary]
+```
+
+#### define a generator with do-expression
+
+```
+generatePair :: Gen (Int, Int)
+generatePair = do
+    x1 <- choose (1, 10)
+    x2 <- choose (100, 300)
+    return (x1, x2)
+```
+
+```
+ghci> sample' generatePair
+[(9,227),(8,272),(6,201),(1,227),(6,121),(1,211),(7,123),(6,113),(5,233),(10,107),(3,228)]
+```
+
+### quickcheck in docteset
 
 ```
 -- |
@@ -169,7 +193,7 @@ Passed:
 -- :}
 ```
 
-#### Misc
+### Misc
 
 ```
 import Test.QuickCheck
