@@ -4,7 +4,7 @@
 
 ### Interactive examples
 
-#### Basic elements by `sample` and `sample'`
+#### basic elements by `sample` and `sample'`
 
 ```
 $ ghci
@@ -59,6 +59,17 @@ ghci> sample' (arbitrary :: Gen [Int])
 ```
 
 
+#### `resize`
+
+```
+ghci> sample' $ (arbitrary :: Gen Int)
+[0,1,-3,-3,-3,9,4,-13,16,-2,6]
+
+ghci> sample' $ resize 100000 $ (arbitrary :: Gen Int)
+[-75191,21304,23337,71894,-62696,66980,90890,-86312,67257,-5797,55330]
+```
+
+
 #### `suchThat`
 
 ```
@@ -71,7 +82,7 @@ ghci> sample' ((arbitrary :: Gen Int) `suchThat` (>0))
 ```
 
 
-#### Utilities
+#### utilities
 
 ```
 ghci> sample' (listOf (arbitrary:: Gen Int))
@@ -83,7 +94,7 @@ ghci> sample' (orderedList :: Gen [Int])
 ```
 
 
-#### Algebraic data types
+#### algebraic data types
 
 ```
 ghci> data Signal = Green | Yellow | Red deriving (Show, Enum)
