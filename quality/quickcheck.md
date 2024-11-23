@@ -98,6 +98,12 @@ ghci> sample' (arbitrary :: Gen Signal)
 [Green,Yellow,Red,Yellow,Green,Yellow,Yellow,Red,Green,Green,Green]
 ```
 
+```
+ghci> data Btree a = Leaf a | Fork (Btree a) (Btree a) deriving Show
+ghci> instance Arbitrary a => Arbitrary (Btree a) where arbitrary = oneof [ liftM Leaf arbitrary, liftM2 Fork arbitrary arbitrary]
+ghci> sample' (arbitrary :: Gen (Btree Int))
+```
+
 
 #### `generate`
 
