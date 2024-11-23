@@ -174,8 +174,13 @@ ghci> sample' generatePair
 ### quickcheck in docteset
 
 ```
--- |
 -- prop> add2 x y == add2 y x
+```
+
+```
+-- prop> (withMaxSize 1023 (\x y -> x + y == y + x))
+-- prop> (forAll (resize 1023 arbitrary) (\x y -> x + y == y + x))
+-- prop> (forAll (choose (0,1023)) (\x y -> x + y == y + x))
 ```
 
 
