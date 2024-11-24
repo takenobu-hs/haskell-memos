@@ -73,9 +73,21 @@ genWeekFreq = frequency [
 
 data Btree a = Leaf a | Fork (Btree a) (Btree a) deriving Show
 
+{- An infinite tree may be generated
 instance Arbitrary a => Arbitrary (Btree a) where
-    arbitrary = oneof [ liftM Leaf arbitrary
-                      , liftM2 Fork arbitrary arbitrary]
+    arbitrary = oneof [ liftM  Leaf arbitrary
+                      , liftM2 Fork arbitrary arbitrary ]
+-}
+
+-- cf. "The fun of programming", Ch.2
+instance Arbitrary a => Arbitrary (Btree a) where
+    arbitrary = sized arbTree
+
+arbTree :: Arbitrary a => Int -> Gen (Btree a)
+arbTree 0         = liftM Leaf arbitrary
+arbTree n | n > 0 = frequency [ (1, liftM  Leaf arbitrary)
+                              , (3, liftM2 Fork shrub shrub) ]
+  where shrub = arbTree (n `div` 2)
 
 genBtreeInt :: Gen (Btree Int)
 genBtreeInt = arbitrary
