@@ -153,6 +153,19 @@ Passed:
 :
 ```
 
+#### statistics
+
+```
+ghci> quickCheck $ (\x y -> collect (x, y) (x+y == y+x))
++++ OK, passed 100 tests:
+ 2% (-14,14)
+ 2% (0,0)
+ 1% (-1,-57)
+ 1% (-11,21)
+ :
+```
+
+
 
 ### QuickCheck examples
 
@@ -217,6 +230,19 @@ ghci> sample' generatePair
 -- prop> (\(x,y) -> (y /= 0)) |=> (\(x,y) -> (x `div` y) == ((x*2) `div` (y*2)))
 ```
 
+```
+-- | Prop test
+-- $setup
+-- >>> import Test.QuickCheck
+-- >>> :{
+-- genInt255 :: Gen Int
+-- genInt255 = choose (0, 255)
+-- :}
+
+-- prop> forAll genInt255  (\x -> x < 256)
+```
+
+
 ### Misc
 
 ```
@@ -233,6 +259,10 @@ stdArgs = Args
   , chatty          = True
   , maxShrinks      = maxBound
   }
+```
+
+```
+runAll = mapM_ quickCheck [prop_plus1, prop_plus2, prop_plus3]
 ```
 
 
