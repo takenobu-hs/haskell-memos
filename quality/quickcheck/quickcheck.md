@@ -169,14 +169,6 @@ ghci> quickCheck $ (\x y -> collect (x, y) (x+y == y+x))
 
 ### QuickCheck examples
 
-#### arbitrary with type variable
-
-```
- instance Arbitrary a => Arbitrary (Btree a) where
-  arbitrary = oneof [ liftM  Leaf arbitrary
-                    , liftM2 Fork arbitrary arbitrary]
-```
-
 #### define a generator with do-expression
 
 ```
@@ -191,6 +183,33 @@ generatePair = do
 ghci> sample' generatePair
 [(9,227),(8,272),(6,201),(1,227),(6,121),(1,211),(7,123),(6,113),(5,233),(10,107),(3,228)]
 ```
+
+#### arbitrary with type variable
+
+```
+ instance Arbitrary a => Arbitrary (Btree a) where
+  arbitrary = oneof [ liftM  Leaf arbitrary
+                    , liftM2 Fork arbitrary arbitrary]
+```
+
+#### finite data with `sized`
+
+```
+data Btree a = Leaf a | Fork (Btree a) (Btree a) deriving Show
+
+
+-- cf. "The fun of programming", Ch.2
+instance Arbitrary a => Arbitrary (Btree a) where
+    arbitrary = sized arbTree
+
+arbTree :: Arbitrary a => Int -> Gen (Btree a)
+arbTree 0         = liftM Leaf arbitrary
+arbTree n | n > 0 = frequency [ (1, liftM  Leaf arbitrary)
+                              , (3, liftM2 Fork shrub shrub) ]
+  where shrub = arbTree (n `div` 2)
+```
+
+
 
 ### quickcheck in docteset
 
