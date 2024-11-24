@@ -76,9 +76,14 @@ ghci> sample' $ resize 100000 $ (arbitrary :: Gen Int)
 ghci> sample' ((arbitrary :: Gen Int) `suchThat` even)
 [0,0,0,-6,4,2,10,-8,12,16,-2]
 
-ghci> sample' ((arbitrary :: Gen Int) `suchThat` (>0))
+ghci> sample' ((arbitrary :: Gen Int) `suchThat` (> 0))
 [1,2,2,1,5,7,2,13,15,4,6]
 
+ghci> sample' (arbitrary `suchThat` (> 0))
+[2,1,3,3,6,10,5,3,12,5,4]
+
+ghci> sample' (arbitrary `suchThat` ( \(x,y) -> x > 0 && y > 0 ))
+[(1,4),(4,2),(4,8),(1,4),(7,7),(6,6),(14,19),(16,7),(4,7),(6,2),(15,20)]
 ```
 
 
@@ -138,6 +143,9 @@ ghci> xs
 ghci> quickCheck  (\x y -> x+y == y+x)
 +++ OK, passed 100 tests.
 
+ghci> quickCheck  ( (\x y -> x+y == y+x) :: (Int -> Int -> Bool))
++++ OK, passed 100 tests.
+
 ghci> verboseCheck (\x y -> x+y == y+x)
 Passed:
 0
@@ -179,10 +187,10 @@ ghci> sample' generatePair
 
 ```
 -- prop> (withMaxSize 1023 (\x y -> x + y == y + x))
--- prop> (forAll (resize 1023 arbitrary) (\x y -> x + y == y + x))
--- prop> (forAll (choose (0,1023)) (\x y -> x + y == y + x))
+-- prop> (forAll (resize 1023 arbitrary) (\(x, y) -> x + y == y + x))
+-- prop> (forAll (choose (0,1023)) (\x -> x + 1 == 1 + x))
+-- prop> (forAll (choose (0,10)) (\x -> (forAll (choose (-10, -1)) (\y -> (x + y == y + x)))))
 ```
-
 
 ```
 -- | Prop test
@@ -196,6 +204,17 @@ ghci> sample' generatePair
 --                       , choose (0xffffffffffff0000,0xffffffffffffffff)
 --                       , choose (0x0000000000000000,0xffffffffffffffff) ]
 -- :}
+```
+
+```
+-- $setup
+-- >>> import Test.QuickCheck
+-- >>> :{
+-- imply cond prop = forAll (arbitrary `suchThat` cond ) prop
+-- (|=>) cond prop = imply cond prop
+-- >>> :}
+
+-- prop> (\(x,y) -> (y /= 0)) |=> (\(x,y) -> (x `div` y) == ((x*2) `div` (y*2)))
 ```
 
 ### Misc
