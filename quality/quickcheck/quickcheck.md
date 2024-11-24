@@ -165,6 +165,14 @@ ghci> quickCheck $ (\x y -> collect (x, y) (x+y == y+x))
  :
 ```
 
+```
+ghci> quickCheck $ (\xs -> classify (null xs) "empty lists" $ classify (length xs == 1) "unit lists" $ xs == xs)
++++ OK, passed 100 tests:
+ 5% empty lists
+ 2% unit lists
+
+```
+
 
 
 ### QuickCheck examples
