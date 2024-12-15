@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like cut -c1-20 command
+-- | Simple IO like cut -c1-30 command
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE
