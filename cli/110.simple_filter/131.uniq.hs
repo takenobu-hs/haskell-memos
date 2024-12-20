@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like uniq command
+-- | Simple command like `uniq`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like head command
+-- | Simple command like `head`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

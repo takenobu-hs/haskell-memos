@@ -1,13 +1,16 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like egrep command
+-- | Simple command like `egrep`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE
 --
+-- Package requirements:
+--   https://hackage.haskell.org/package/regex-posix for `=~`
+--
 -----------------------------------------------------------------------------
 
-import Text.Regex.Posix
+import Text.Regex.Posix ((=~))
 
 main :: IO ()
 main = do

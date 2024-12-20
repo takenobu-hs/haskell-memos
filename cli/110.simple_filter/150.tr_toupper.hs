@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like tr [:lower:] [:upper:]
+-- | Simple command like `tr [:lower:] [:upper:]`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like wc -l command
+-- | Simple command like `wc -l`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

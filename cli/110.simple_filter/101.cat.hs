@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like cat command
+-- | Simple command like `cat`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

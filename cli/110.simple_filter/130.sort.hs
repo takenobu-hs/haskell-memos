@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like sort command
+-- | Simple command like `sort`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

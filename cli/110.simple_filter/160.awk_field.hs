@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like awk '{print $3}'
+-- | Simple command like `awk '{print $3}'`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE

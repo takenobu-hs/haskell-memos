@@ -1,6 +1,6 @@
 
 -----------------------------------------------------------------------------
--- | Simple IO like fgrep command
+-- | Simple command like `fgrep`
 --
 -- Usage:
 --   $ runhaskell THIS.hs < INFILE
